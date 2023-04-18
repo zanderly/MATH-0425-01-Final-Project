@@ -1,6 +1,6 @@
 # Copyright 2013 Philip N. Klein
 from vec import Vec
-from vecutil import vec2list
+# from vecutil import vec2list
 from sympy import Matrix
 
 def read_training_data(fname, D=None):
@@ -30,6 +30,7 @@ def read_training_data(fname, D=None):
         patient_ID = int(row[0])
         b.append(-1) if row[1] == 'B' else b.append(1)
         feature_vectors[patient_ID] = Vec(D, {f:float(row[feature_map[f]+2]) for f in D})
-        A.append(vec2list(feature_vectors[patient_ID]))
+        A.append(list(feature_vectors[patient_ID]))
+        # A.append(vec2list(feature_vectors[patient_ID]))
     return Matrix(A), Matrix(b)
         
