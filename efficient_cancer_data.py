@@ -5,6 +5,7 @@ from sympy import Matrix
 
 import numpy as np
 
+
 def read_training_data(fname, D=None):
     """Given a file in appropriate format, and given a set D of features,
     returns the pair (A, b) consisting of
@@ -18,11 +19,14 @@ def read_training_data(fname, D=None):
     The set D of features must be a subset of the features in the data (see text).
     """
     file = open(fname)
-    params = ["radius", "texture", "perimeter","area","smoothness","compactness","concavity","concave points","symmetry","fractal dimension"];
+    params = ["radius", "texture", "perimeter", "area", "smoothness",
+              "compactness", "concavity", "concave points", "symmetry", "fractal dimension"]
     stats = ["(mean)", "(stderr)", "(worst)"]
     feature_labels = set([y+x for x in stats for y in params])
-    feature_map = {params[i]+stats[j]:j*len(params)+i for i in range(len(params)) for j in range(len(stats))}
-    if D is None: D = feature_labels
+    feature_map = {params[i]+stats[j]: j *
+                   len(params)+i for i in range(len(params)) for j in range(len(stats))}
+    if D is None:
+        D = feature_labels
     feature_vectors = {}
     #patient_diagnoses = {}
     A = []
@@ -32,9 +36,9 @@ def read_training_data(fname, D=None):
         patient_ID = int(row[0])
         b.append(-1) if row[1] == 'B' else b.append(1)
         # feature_vectors[patient_ID] = Vec(D, {f:float(row[feature_map[f]+2]) for f in D})
-        feature_vectors[patient_ID] = np.array(D, {f:float(row[feature_map[f]+2]) for f in D})
+        feature_vectors[patient_ID] = np.array(
+            D, {f: float(row[feature_map[f]+2]) for f in D})
 
         A.append(list(feature_vectors[patient_ID]))
         # A.append(vec2list(feature_vectors[patient_ID]))
     return Matrix(A), Matrix(b)
-        
