@@ -3,6 +3,8 @@
 # from vecutil import vec2list
 from sympy import Matrix
 
+from vec import Vec
+from vecutil import vec2list
 import numpy as np
 
 
@@ -35,10 +37,10 @@ def read_training_data(fname, D=None):
         row = line.split(",")
         patient_ID = int(row[0])
         b.append(-1) if row[1] == 'B' else b.append(1)
-        # feature_vectors[patient_ID] = Vec(D, {f:float(row[feature_map[f]+2]) for f in D})
-        feature_vectors[patient_ID] = np.array(
-            [(f, float(row[feature_map[f]+2])) for f in D])
+        feature_vectors[patient_ID] = Vec(D, {f:float(row[feature_map[f]+2]) for f in D})
+        # feature_vectors[patient_ID] = np.array(
+        #     [(f, float(row[feature_map[f]+2])) for f in D])
 
-        A.append(list(feature_vectors[patient_ID]))
-        # A.append(vec2list(feature_vectors[patient_ID]))
+        # A.append(list(feature_vectors[patient_ID]))
+        A.append(vec2list(feature_vectors[patient_ID]))
     return Matrix(A), Matrix(b)
