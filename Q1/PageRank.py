@@ -1,7 +1,7 @@
 import networkx as nx
 
-
 filename = "top250movies.txt"
+
 # Read the data from the file and create the network
 try:
     G = nx.Graph()
@@ -20,7 +20,7 @@ try:
     # Compute the PageRank vector and write the list of ranked actors to a file
     pr = nx.pagerank(G)
     ranked_actors = sorted(pr, key=pr.get, reverse=True)
-    with open("ranked_actors.txt", "w", encoding="utf-8") as out_file:
+    with open("q1/ranked_actors.txt", "w", encoding="utf-8") as out_file:
         for actor in ranked_actors:
             out_file.write(actor + "\n")
 except FileNotFoundError:
