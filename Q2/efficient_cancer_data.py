@@ -37,7 +37,7 @@ def read_training_data(fname, D=None):
         b.append(-1) if row[1] == 'B' else b.append(1)
         # feature_vectors[patient_ID] = Vec(D, {f:float(row[feature_map[f]+2]) for f in D})
         feature_vectors[patient_ID] = np.array(
-            D, {f: float(row[feature_map[f]+2]) for f in D})
+            [(f, float(row[feature_map[f]+2])) for f in D])
 
         A.append(list(feature_vectors[patient_ID]))
         # A.append(vec2list(feature_vectors[patient_ID]))
