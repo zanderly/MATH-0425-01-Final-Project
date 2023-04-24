@@ -57,22 +57,15 @@ def malignant_or_benign(filename):
     
     # return final_predictions
     
-print(malignant_or_benign(q2_filename))
+x = (malignant_or_benign(q2_filename))
+print(x)
 
 
 def error_rate(x):
-    # Load the validation data
-    filename = "validate.data"
-    A, b_true = read_training_data(filename)
 
-    # Compute the predictions
-    b_pred = np.dot(A, x)
-
-    # Calculate the percentage of incorrectly classified samples
-    incorrect = np.sum(np.sign(b_true) != np.sign(b_pred))
-    percentage = incorrect / len(b_true) * 100
     
-    return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
+    
+    # return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
 
 
-error_rate(q2_filename)
+# error_rate(x)
