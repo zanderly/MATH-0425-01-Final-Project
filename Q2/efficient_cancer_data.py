@@ -1,6 +1,5 @@
 # Copyright 2013 Philip N. Klein
-# from vec import Vec
-# from vecutil import vec2list
+
 from sympy import Matrix
 
 from vec import Vec
