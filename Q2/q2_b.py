@@ -16,8 +16,13 @@ except ValueError:
 # Step 2: Compute the predictions
 
 
-
 # Step 3: Define the classifier function
+
+def C(y):
+    if y >= 0:
+        return 1
+    else:
+        return -1
 
 
 # Step 4: Apply the classifier function to the predictions to get the final predictions
