@@ -15,6 +15,7 @@ except ValueError:
 
 # Step 2: Compute the predictions
 
+predictions = np.dot(A, x)
 
 # Step 3: Define the classifier function
 
