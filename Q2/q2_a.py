@@ -1,8 +1,9 @@
 import numpy as np
 from efficient_cancer_data import read_training_data
 
-input_file_name = "train.data"
-output_file_name = "least_squares_solution.txt"
+q1_filename = "train.data"
+q2_filename = "validate.data"
+output_filename = "least_squares_solution.txt"
 
 def least_squares(filename):
     # Step 1: Read the training data
@@ -22,19 +23,18 @@ def least_squares(filename):
     # Step 4: Return the solution x
     return x
 
-print(least_squares(input_file_name))
+print(least_squares(q1_filename))
 
-filename = "validate.data"
 
 
 def malignant_or_benign(x):
     # Step 1: Read the training data
     try:
-        A, b = read_training_data(filename)
+        A, b = read_training_data(q2_filename)
     except FileNotFoundError:
-        raise IOError(f"Error: Could not find file {filename}")
+        raise IOError(f"Error: Could not find file {q2_filename}")
     except ValueError:
-        raise ValueError(f"Error: Invalid data in file {filename}")
+        raise ValueError(f"Error: Invalid data in file {q2_filename}")
 
     x = least_squares("input_file_name")
     # Step 2: Compute the predictions
