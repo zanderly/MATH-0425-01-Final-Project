@@ -12,7 +12,7 @@ def least_squares(filename):
         raise IOError(f"Error: Could not find file {filename}")
     except ValueError:
         raise ValueError(f"Error: Invalid data in file {filename}")
-
+    
     # Step 2: Compute the QR decomposition of A
     Q, R = np.linalg.qr(A)
 
