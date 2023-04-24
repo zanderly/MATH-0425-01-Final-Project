@@ -23,8 +23,8 @@ def least_squares(filename):
     # Step 4: Return the solution x
     return x
 
+# Print the least squares solution for the training data
 print(least_squares(q1_filename))
-
 
 
 def malignant_or_benign(x):
@@ -54,3 +54,7 @@ def malignant_or_benign(x):
 
 
     # Print the final predictions
+    
+    # return x
+    
+print(malignant_or_benign(q2_filename))
