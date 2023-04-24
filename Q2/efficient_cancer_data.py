@@ -29,7 +29,7 @@ def read_training_data(fname, D=None):
     if D is None:
         D = feature_labels
     feature_vectors = {}
-    #patient_diagnoses = {}
+    patient_diagnoses = {}
     A = []
     b = []
     for line in file:
