@@ -27,16 +27,16 @@ def least_squares(filename):
 print(least_squares(q1_filename))
 
 
-def malignant_or_benign(x):
+def malignant_or_benign(filename):
     # Step 1: Read the training data
     try:
-        A, b = read_training_data(q2_filename)
+        A, b = read_training_data(filename)
     except FileNotFoundError:
-        raise IOError(f"Error: Could not find file {q2_filename}")
+        raise IOError(f"Error: Could not find file {filename}")
     except ValueError:
-        raise ValueError(f"Error: Invalid data in file {q2_filename}")
+        raise ValueError(f"Error: Invalid data in file {filename}")
 
-    x = least_squares("input_file_name")
+    x = least_squares(filename)
     # Step 2: Compute the predictions
 
     # predictions = np.dot(A, x) ????
@@ -60,3 +60,19 @@ def malignant_or_benign(x):
 print(malignant_or_benign(q2_filename))
 
 
+def error_rate(x):
+    # Load the validation data
+    filename = "validate.data"
+    A, b_true = read_training_data(filename)
+
+    # Compute the predictions
+    b_pred = np.dot(A, x)
+
+    # Calculate the percentage of incorrectly classified samples
+    incorrect = np.sum(np.sign(b_true) != np.sign(b_pred))
+    percentage = incorrect / len(b_true) * 100
+    
+    return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
+
+
+error_rate(q2_filename)
