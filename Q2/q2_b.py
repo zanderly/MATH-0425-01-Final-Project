@@ -1,16 +1,20 @@
+import numpy as np
+
 from efficient_cancer_data import read_training_data
 
-# Step 1: Read the validation data
+filename = "validate.data"
+
+# Step 1: Read the training data
 try:
-    A_val, b_val = read_training_data("validate.data")
+    A, b = read_training_data(filename)
 except FileNotFoundError:
-    print("Error: Could not find file validate.data")
-    exit(1)
+    raise IOError(f"Error: Could not find file {filename}")
 except ValueError:
-    print("Error: Invalid data in file validate.data")
-    exit(1)
+    raise ValueError(f"Error: Invalid data in file {filename}")
+
 
 # Step 2: Compute the predictions
+
 
 
 # Step 3: Define the classifier function
