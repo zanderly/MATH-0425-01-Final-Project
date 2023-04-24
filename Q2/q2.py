@@ -39,7 +39,7 @@ def malignant_or_benign(x):
     x = least_squares("input_file_name")
     # Step 2: Compute the predictions
 
-    predictions = np.dot(A, x)
+    # predictions = np.dot(A, x) ????
 
     # Step 3: Define the classifier function
 
@@ -55,6 +55,8 @@ def malignant_or_benign(x):
 
     # Print the final predictions
     
-    # return x
+    # return final_predictions
     
 print(malignant_or_benign(q2_filename))
+
+
