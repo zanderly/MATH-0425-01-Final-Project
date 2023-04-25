@@ -48,8 +48,6 @@ def malignant_or_benign(filename):
 
     return final_predictions
 
-    
-
 
 # def error_rate(x, y):
 
