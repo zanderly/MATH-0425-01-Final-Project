@@ -39,7 +39,7 @@ def malignant_or_benign(filename):
     x = least_squares(filename)
     # Step 2: Compute the predictions
 
-    # predictions = np.dot(A, x) ????
+    predictions = np.dot(A, x)
 
     # Step 3: Define the classifier function
 
@@ -51,21 +51,21 @@ def malignant_or_benign(filename):
 
 
     # Step 4: Apply the classifier function to the predictions to get the final predictions
-
+    final_predictions = [C(y) for y in predictions]
 
     # Print the final predictions
-    
+    return final_predictions
     # return final_predictions
     
 x = (malignant_or_benign(q2_filename))
 print(x)
 
 
-def error_rate(x):
+# def error_rate(x):
 
     
     
-    # return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
+#     # return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
 
 
-# error_rate(x)
+# # error_rate(x)
