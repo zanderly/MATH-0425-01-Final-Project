@@ -5,7 +5,6 @@ train_data = "train.data"
 validate_data = "validate.data"
 output_filename = "least_squares_solution.txt"
 
-# Question 1
 
 print( "Part A" )
 print( "----------" )

@@ -17,7 +17,6 @@ def least_squares(filename):
     # Step 3: Compute the least squares solution x
     x = np.dot(np.dot(np.linalg.inv(R), Q.T), b)
 
-    # Step 4: Return the solution x
     return x
 
 # Classifier function
@@ -37,16 +36,16 @@ def malignant_or_benign(filename):
     except ValueError:
         raise ValueError(f"Error: Invalid data in file {filename}")
 
+    # Step 2: Compute the least squares solution
     x = least_squares(filename)
     
-    # Step 2: Compute the predictions
+    # Step 3: Compute the predictions
     predictions = np.dot(A, x)
 
-    # Step 3: Apply the classifier function to the predictions to get the 
+    # Step 4: Apply the classifier function to the predictions to get the 
     # final predictions
     final_predictions = [C(y) for y in predictions]
 
-    # Print the final predictions
     return final_predictions
 
     
