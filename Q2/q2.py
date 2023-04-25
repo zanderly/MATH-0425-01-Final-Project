@@ -52,12 +52,11 @@ def malignant_or_benign(filename):
     
 
 
-# def error_rate(x):
+def error_rate(x, y):
 
-#     # We are comparing the performance of the linear model on the training data 
-#     # and the validation data to evaluate its generalization ability.
+    # We are comparing the performance of the linear model on the training data 
+    # and the validation data to evaluate its generalization ability.
     
-#     return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
+    return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
 
 
-# error_rate(x)
