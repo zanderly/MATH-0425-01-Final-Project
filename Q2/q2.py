@@ -1,7 +1,6 @@
 import numpy as np
 from efficient_cancer_data import read_training_data
 
-
 # Function to compute the least squares solution
 def least_squares(filename):
     # Step 1: Read the training data
@@ -43,7 +42,8 @@ def malignant_or_benign(filename):
     # Step 2: Compute the predictions
     predictions = np.dot(A, x)
 
-    # Step 3: Apply the classifier function to the predictions to get the final predictions
+    # Step 3: Apply the classifier function to the predictions to get the 
+    # final predictions
     final_predictions = [C(y) for y in predictions]
 
     # Print the final predictions
@@ -52,11 +52,15 @@ def malignant_or_benign(filename):
     
 
 
-def error_rate(x, y):
+# def error_rate(x, y):
 
-    # We are comparing the performance of the linear model on the training data 
-    # and the validation data to evaluate its generalization ability.
+#     # We are comparing the performance of the linear model on the training data 
+#     # and the validation data to evaluate its generalization ability.
     
-    return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
+#     num_correct = sum([1 for i in range(len(y)) if x[i] == y[i]])
+            
+#     percentage = (num_correct/len(y))*100
+    
+#     return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
 
 
