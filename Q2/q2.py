@@ -1,10 +1,8 @@
 import numpy as np
 from efficient_cancer_data import read_training_data
 
-q1_filename = "train.data"
-q2_filename = "validate.data"
-output_filename = "least_squares_solution.txt"
 
+# Function to compute the least squares solution
 def least_squares(filename):
     # Step 1: Read the training data
     try:
@@ -23,10 +21,14 @@ def least_squares(filename):
     # Step 4: Return the solution x
     return x
 
-# Print the least squares solution for the training data
-print(least_squares(q1_filename))
+# Classifier function
+def C(y):
+    if y >= 0:
+        return 1
+    else:
+        return -1
 
-
+# Function to compute the predictions
 def malignant_or_benign(filename):
     # Step 1: Read the training data
     try:
@@ -37,35 +39,25 @@ def malignant_or_benign(filename):
         raise ValueError(f"Error: Invalid data in file {filename}")
 
     x = least_squares(filename)
+    
     # Step 2: Compute the predictions
-
     predictions = np.dot(A, x)
 
-    # Step 3: Define the classifier function
-
-    def C(y):
-        if y >= 0:
-            return 1
-        else:
-            return -1
-
-
-    # Step 4: Apply the classifier function to the predictions to get the final predictions
+    # Step 3: Apply the classifier function to the predictions to get the final predictions
     final_predictions = [C(y) for y in predictions]
 
     # Print the final predictions
     return final_predictions
-    # return final_predictions
+
     
-x = (malignant_or_benign(q2_filename))
-print(x)
 
 
 # def error_rate(x):
 
+#     # We are comparing the performance of the linear model on the training data 
+#     # and the validation data to evaluate its generalization ability.
     
-    
-#     # return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
+#     return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
 
 
-# # error_rate(x)
+# error_rate(x)
