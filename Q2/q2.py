@@ -59,5 +59,3 @@ def malignant_or_benign(filename):
 #     percentage = (num_correct/len(y))*100
     
 #     return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
-
-
