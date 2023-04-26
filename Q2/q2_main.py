@@ -13,11 +13,13 @@ print(q2_least_squares)
 print( "----------" )
 
 print( "\nPart B" )
+print( "----------" )
 q2_b = (malignant_or_benign(validate_data))
 print(q2_b)
 print( "----------" )
 
 print( "\nPart C" )
+print( "----------")
 x = malignant_or_benign(train_data)
 y = malignant_or_benign(validate_data)
 q2_c = error_rate(x, y)
