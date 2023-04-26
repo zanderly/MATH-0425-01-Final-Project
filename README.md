@@ -16,4 +16,7 @@ Problem #1
     Alex
 
 Problem #2
-    Alex
+    Alex Mankit James
+    
+Problem #3
+    Daniel Trevor
