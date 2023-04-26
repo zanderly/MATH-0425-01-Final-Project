@@ -42,20 +42,20 @@ def malignant_or_benign(filename):
     # Step 3: Compute the predictions
     predictions = np.dot(A, x)
 
-    # Step 4: Apply the classifier function to the predictions to get the 
-    # final predictions
+    # Step 4: Apply the classifier function to the predictions to get the final predictions
     final_predictions = [C(y) for y in predictions]
 
     return final_predictions
 
 
-# def error_rate(x, y):
+def error_rate(x, y):
 
-#     # We are comparing the performance of the linear model on the training data 
-#     # and the validation data to evaluate its generalization ability.
-    
-#     num_correct = sum([1 for i in range(len(y)) if x[i] == y[i]])
+    # We are comparing the performance of the linear model on the training data 
+    # and the validation data to evaluate its generalization ability.
+    # The error rate is the percentage of incorrectly classified samples.
+    # The error rate is computed as follows:
+    num_correct = sum([1 for i in range(len(y)) if x[i] == y[i]])
             
-#     percentage = (num_correct/len(y))*100
+    percentage = (num_correct/len(y))*100
     
-#     return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
+    return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
