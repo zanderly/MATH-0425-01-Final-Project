@@ -48,15 +48,14 @@ def malignant_or_benign(filename):
     return final_predictions
 
 
-def error_rate(x, y):
+# def error_rate(x, y):
 
-    # We are comparing the performance of the linear model on the training data 
-    # and the validation data to evaluate its generalization ability.
-    # The error rate is the percentage of incorrectly classified samples.
+#     # We are comparing the performance of the linear model on the training data 
+#     # and the validation data to evaluate its generalization ability.
+#     # The error rate is the percentage of incorrectly classified samples.
 
 
-    num_correct = sum([1 for i in range(len(y)) if x[i] == y[i]])
             
-    percentage = (num_correct/len(y))*100
+#     percentage = (num_correct/len(y))*100
     
-    return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
+#     return(f"Percentage of incorrectly classified samples: {percentage:.2f}%")
