@@ -53,7 +53,8 @@ def error_rate(x, y):
     # We are comparing the performance of the linear model on the training data 
     # and the validation data to evaluate its generalization ability.
     # The error rate is the percentage of incorrectly classified samples.
-    # The error rate is computed as follows:
+
+
     num_correct = sum([1 for i in range(len(y)) if x[i] == y[i]])
             
     percentage = (num_correct/len(y))*100
