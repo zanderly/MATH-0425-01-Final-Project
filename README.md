@@ -12,11 +12,13 @@ Group Members
 
     Man Yeung
 
-Problem #1
+Problem #1:
     Alex
 
-Problem #2
+Problem #2:
     Alex Mankit James
-    
-Problem #3
+
+Problem #3:
     Daniel Trevor
+
+Document:
