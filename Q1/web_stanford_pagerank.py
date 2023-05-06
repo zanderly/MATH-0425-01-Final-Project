@@ -27,7 +27,7 @@ links=sorted(links)  #sort the IDs of the webpages into a list
 n = len(links)
 G = zeros((n,n))
 
-with open("data/web_stanford.txt","r") as f:
+with open("q1/web_stanford.txt","r") as f:
     for line in f:
         ls=line.rstrip("\n").split("/")
         lIDs = map(int, ls) #IDs on the line
@@ -43,3 +43,5 @@ f.close()
 
 netw=pageRank(G,links,0.85,1e-6,15)  
 prv = netw.linsolve()
+
+print("The PageRank vector is: \n", prv)
