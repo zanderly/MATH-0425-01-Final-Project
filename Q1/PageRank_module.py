@@ -40,15 +40,24 @@ class pageRank():
                         (1.0-self.eps)/n*ones((n,1)))
         return sortPageRank({k:float(v) for (k,v) in zip(self.nodes,x)})
     
-    def marchmadness(self,tourneyteams):
-        n = self.size
-        x = LA.solve(identity(n)-self.eps*self.G,\
-                        (1.0-self.eps)/n*ones((n,1)))
-        tteams = sorted(tourneyteams)
+    # def marchmadness(self,tourneyteams):
+    #     n = self.size
+    #     x = LA.solve(identity(n)-self.eps*self.G,\
+    #                     (1.0-self.eps)/n*ones((n,1)))
+    #     tteams = sorted(tourneyteams)
         
-        stteams = sortPageRank({k:float(x[self.nodes.index(k)]) for k in tteams})
-        return stteams, sortPageRank({k:float(v) for (k,v) in zip(self.nodes,x)})
+    #     stteams = sortPageRank({k:float(x[self.nodes.index(k)]) for k in tteams})
+    #     return stteams, sortPageRank({k:float(v) for (k,v) in zip(self.nodes,x)})
     
+    def movieRanking(self, movielist):
+        n = self.size
+        x = LA.solve(identity(n) - self.eps * self.G, (1.0 - self.eps) / n * ones((n, 1)))
+        
+        # calculate the ranking of the movies
+        rankedMovies = sortPageRank({k: float(x[self.nodes.index(k)]) for k in movielist})
+        
+        return rankedMovies
+
     def eigensolve(self):
         n = self.size
         P = self.eps*self.G + (1.0-self.eps)/self.size*ones((n,n))
