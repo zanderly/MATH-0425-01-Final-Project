@@ -51,9 +51,15 @@ except FileNotFoundError:
     raise IOError(f"Error: Could not find file {file}.")
 except ValueError:
     raise ValueError(f"Error: Invalid data in file {file}.")
-print("The adjacency matrix is: \n", G)
+
 
 netw=pageRank(G,links,0.85,1e-6,15)  
 prv = netw.linsolve()
 
-print("The PageRank vector is: \n", prv)
+# Rank the actors by their PageRank scores
+ranked_actors = [(links[i], prv[i]) for i in range(len(links))]
+ranked_actors = sorted(ranked_actors, key=lambda x: x[1], reverse=True)
+
+# Print the ranked actors
+for actor in ranked_actors:
+    print(actor[0], actor[1])
