@@ -1,5 +1,3 @@
-
-
 train_data = load("handwriting_training_set.txt");
 train_labels = load("handwriting_training_set_labels.txt");
 test_data = load("handwriting_test_set.txt");
@@ -88,56 +86,68 @@ end
 [U8,~,~] = svd(A8');
 [U9,~,~] = svd(A9');
 
+U01  = U0(:,1);
 U05  = U0(:,1:5);
 U010 = U0(:,1:10);
 U015 = U0(:,1:15);
 U020 = U0(:,1:20);
 
+U11  = U1(:,1);
 U15  = U1(:,1:5);
 U110 = U1(:,1:10);
 U115 = U1(:,1:15);
 U120 = U1(:,1:20);
 
+U21  = U2(:,1);
 U25  = U2(:,1:5);
 U210 = U2(:,1:10);
 U215 = U2(:,1:15);
 U220 = U2(:,1:20);
 
+U31  = U3(:,1);
 U35  = U3(:,1:5);
 U310 = U3(:,1:10);
 U315 = U3(:,1:15);
 U320 = U3(:,1:20);
 
+U41  = U4(:,1);
 U45  = U4(:,1:5);
 U410 = U4(:,1:5);
 U415 = U4(:,1:5);
 U420 = U4(:,1:5);
 
+U51  = U5(:,1);
 U55  = U5(:,1:5);
 U510 = U5(:,1:10);
 U515 = U5(:,1:15);
 U520 = U5(:,1:20);
 
+U61  = U6(:,1);
 U65  = U6(:,1:5);
 U610 = U6(:,1:10);
 U615 = U6(:,1:15);
 U620 = U6(:,1:20);
 
+U71  = U7(:,1);
 U75  = U7(:,1:5);
 U710 = U7(:,1:10);
 U715 = U7(:,1:15);
 U720 = U7(:,1:20);
 
+U81  = U8(:,1);
 U85  = U8(:,1:5);
 U810 = U8(:,1:10);
 U815 = U8(:,1:15);
 U820 = U8(:,1:20);
 
+U91  = U9(:,1);
 U95  = U9(:,1:5);
 U910 = U9(:,1:10);
 U915 = U9(:,1:15);
 U920 = U9(:,1:20);
 
+  
+% Y = test_data(218,:)';
 correct = false(1000,4);
 minZ = 100;
 Z = zeros(10,1);
@@ -145,6 +155,7 @@ result_digit = 0;
 output_digits = zeros(1000,4);
 
 for k=1:1000
+
     Y = test_data(k,:)';
 
     YHat0 = projection(Y, U05);
@@ -317,6 +328,7 @@ end
 
 num_correct = [0,0,0,0];
 
+
 for q=1:4
     for d=1:1000
         if correct(d,q) == 1
@@ -365,17 +377,7 @@ PartB_result_digit = 50;
 PartB_output_digits = zeros(1000,2);
 PartB_num_correct = 0;
 Z = zeros(10,1);
-
-U01  = U0(:,1);
-U11  = U1(:,1);
-U21  = U2(:,1);
-U31  = U3(:,1);
-U41  = U4(:,1);
-U51  = U5(:,1);
-U61  = U6(:,1);
-U71  = U7(:,1);
-U81  = U8(:,1);
-U91  = U9(:,1);
+lowY = 50;
 
 for v=1:1000
     Y = test_data(v,:)';
@@ -475,4 +477,5 @@ for v=1:1000
     PartB_result_digit = 50;
 end
 
+disp(AlgA)
 disp('done')
